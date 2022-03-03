@@ -7,67 +7,141 @@
     tools:context=".SelectedPaysActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/selectedTextId"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="ID"
-            android:inputType="textPersonName"
-            android:padding="10dp" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/selectedTextContinent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Continent"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:padding="10dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/selectedTextNom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Nom"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:padding="10dp" />
 
-        <EditText
-            android:id="@+id/selectedTextNombreHabitants"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Nombre d'habitants"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:padding="10dp" />
+                <TextView
+                    android:id="@+id/editTextId2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="ID"
+                    android:inputType="textPersonName"
+                    android:padding="10dp" />
 
-        <EditText
-            android:id="@+id/selectedTextSuperficie"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Superficie"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:padding="10dp" />
+                <TextView
+                    android:id="@+id/editTextContinent2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Continent"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:id="@+id/editTextNom2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Nom"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:id="@+id/editTextNombreHabitants2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Nombre d'habitants"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:id="@+id/editTextSuperficie2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Superficie"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:padding="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/editTextId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="ID"
+                    android:inputType="textPersonName"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:id="@+id/editTextContinent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Continent"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:id="@+id/editTextNom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Nom"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:id="@+id/editTextNombreHabitants"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Nombre d'habitants"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:id="@+id/editTextSuperficie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Superficie"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:padding="10dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <Button
-            android:id="@+id/buttonListePays"
+            android:id="@+id/selectedButtonEnregistrer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0"
             android:text="Retour a la liste Pays" />
 
-
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

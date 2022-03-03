@@ -35,22 +35,16 @@ public class PaysAdapter extends RecyclerView.Adapter<PaysAdapter.PaysViewHolder
     @Override
     public void onBindViewHolder(@NonNull PaysViewHolder holder, int position) {
         Pays pays = listpays.get(position);
-//        holder.tvId.setText(pays.getId());
+        holder.tvId.setText(String.valueOf(pays.getId()));
         holder.tvContinent.setText(pays.getContinent());
         holder.tvNom.setText(pays.getNom());
-//        holder.tvNombre_habitants.setText(pays.getNombre_habitants());
- //       holder.tvDateSuperficie.setText(pays.getSuperficie());
+       holder.tvNombre_habitants.setText(String.valueOf(pays.getNombre_habitants()));
+       holder.tvDateSuperficie.setText(String.valueOf(pays.getSuperficie()));
 
 
-        //        holder.tvIdSelected.setText(pays.getId());
-//        holder.tvContinentSelected.setText(pays.getContinent());
-//        holder.tvNomSelected.setText(pays.getNom());
-//        holder.tvNombre_habitantsSelected.setText(pays.getNombre_habitants());
-        //       holder.tvDateSuperficieSelected.setText(pays.getSuperficie());
+
 
         holder.itemView.setOnClickListener(view -> {
-//            Toast.makeText(view.getContext(), "Pays: " + pays.getNom(), Toast.LENGTH_SHORT)
-//                    .show();
 
             Intent intent = new Intent(view.getContext() ,SelectedPaysActivity.class);
             intent.putExtra("selectedPays",pays);
@@ -85,11 +79,7 @@ public class PaysAdapter extends RecyclerView.Adapter<PaysAdapter.PaysViewHolder
         public TextView tvNombre_habitants;
         public TextView tvDateSuperficie;
 
-//        public TextView tvIdSelected;
-//        public TextView tvContinentSelected;
-//        public TextView tvNomSelected;
-//        public TextView tvNombre_habitantsSelected;
-//        public TextView tvDateSuperficieSelected;
+
 
         public PaysViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -98,12 +88,8 @@ public class PaysAdapter extends RecyclerView.Adapter<PaysAdapter.PaysViewHolder
             tvNom = itemView.findViewById(R.id.txtVNom);
             tvNombre_habitants = itemView.findViewById(R.id.txtNombreHabitants);
             tvDateSuperficie = itemView.findViewById(R.id.txtVSuperficie);
-//
-//            tvIdSelected = itemView.findViewById(R.id.selectedTextId);
-//            tvContinentSelected = itemView.findViewById(R.id.selectedTextContinent);
-//            tvNomSelected = itemView.findViewById(R.id.selectedTextNom);
-//            tvNombre_habitantsSelected = itemView.findViewById(R.id.selectedTextNombreHabitants);
-//            tvDateSuperficieSelected = itemView.findViewById(R.id.selectedTextSuperficie);
+
+
 
             itemView.setOnCreateContextMenuListener(this);
         }
