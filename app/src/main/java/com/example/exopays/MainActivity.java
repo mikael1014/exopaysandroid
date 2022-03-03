@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -97,4 +99,37 @@ public class MainActivity extends AppCompatActivity {
        }
         return super.onContextItemSelected(item);
     }
+
+    //MENU
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.my_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item1:
+                Toast.makeText(this, "Item 1 clické", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.Item2:
+                Toast.makeText(this, "Item 2 clické", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.Item3:
+                Toast.makeText(this, "Item 3 clické", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.submenu1:
+                Toast.makeText(this, "Sous menu 1 clické", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.submenu2:
+                Toast.makeText(this, "Sous menu 2 clické", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }
