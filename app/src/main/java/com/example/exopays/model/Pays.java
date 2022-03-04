@@ -6,7 +6,7 @@ public class Pays implements Serializable {
     private long id;
     private String continent;
     private String nom;
-    private long nombre_habitants;
+    private long nombreHabitants;
     private long superficie;
 
     public long getId() {
@@ -33,12 +33,12 @@ public class Pays implements Serializable {
         this.nom = nom;
     }
 
-    public long getNombre_habitants() {
-        return nombre_habitants;
+    public long getNombreHabitants() {
+        return nombreHabitants;
     }
 
-    public void setNombre_habitants(long nombre_habitants) {
-        this.nombre_habitants = nombre_habitants;
+    public void setNombreHabitants(long nombreHabitants) {
+        this.nombreHabitants = nombreHabitants;
     }
 
     public long getSuperficie() {
@@ -55,7 +55,7 @@ public class Pays implements Serializable {
                 "id=" + id +
                 ", continent='" + continent + '\'' +
                 ", nom='" + nom + '\'' +
-                ", nombre_habitants=" + nombre_habitants +
+                ", nombreHabitants=" + nombreHabitants +
                 ", superficie=" + superficie +
                 '}';
     }

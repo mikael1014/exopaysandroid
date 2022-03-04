@@ -13,10 +13,10 @@
         android:theme="@style/Theme.ExoPays"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".SelectedPaysActivity"
+            android:name=".activity.DetailsPaysActivity"
             android:exported="false" />
         <activity
-            android:name=".EditPaysActivity"
+            android:name=".activity.EditPaysActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

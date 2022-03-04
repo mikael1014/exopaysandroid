@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.exopays.activity.EditPaysActivity;
+import com.example.exopays.adapter.PaysAdapter;
 import com.example.exopays.model.Pays;
 import com.example.exopays.services.Config;
 import com.example.exopays.services.PaysService;
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
        Pays pays = listePays.get(position);
        switch (item.getItemId()){
            case R.string.menu_item_editer:
-               Intent intent = new Intent(this ,EditPaysActivity.class);
+               Intent intent = new Intent(this , EditPaysActivity.class);
                intent.putExtra("selectedPays",pays);
 
                intent.putExtra("editMode", 1);

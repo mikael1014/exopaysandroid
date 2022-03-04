@@ -1,5 +1,6 @@
-package com.example.exopays;
+package com.example.exopays.adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -12,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.exopays.R;
+import com.example.exopays.activity.DetailsPaysActivity;
 import com.example.exopays.model.Pays;
 
 import java.util.List;
@@ -38,20 +41,17 @@ public class PaysAdapter extends RecyclerView.Adapter<PaysAdapter.PaysViewHolder
         holder.tvId.setText(String.valueOf(pays.getId()));
         holder.tvContinent.setText(pays.getContinent());
         holder.tvNom.setText(pays.getNom());
-       holder.tvNombre_habitants.setText(String.valueOf(pays.getNombre_habitants()));
+       holder.tvNombre_habitants.setText(String.valueOf(pays.getNombreHabitants()));
        holder.tvDateSuperficie.setText(String.valueOf(pays.getSuperficie()));
 
-
-
-
         holder.itemView.setOnClickListener(view -> {
-
-            Intent intent = new Intent(view.getContext() ,SelectedPaysActivity.class);
-            intent.putExtra("selectedPays",pays);
+            Context context = view.getContext();
+            Intent intent = new Intent(context , DetailsPaysActivity.class);
+//            intent.putExtra("selectedPays",pays);
 //            intent.putExtra("editMode", 1);
+            intent.putExtra("idPays",pays.getId());
 
-
-            view.getContext().startActivity(intent);
+            context.startActivity(intent);
         });
         holder.itemView.setOnLongClickListener(view -> {
             setSelectedItemPosition(position);
