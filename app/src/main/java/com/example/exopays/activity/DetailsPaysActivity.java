@@ -3,8 +3,6 @@ package com.example.exopays.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.ContentInfo;
 import android.widget.TextView;
 
 import com.example.exopays.R;
@@ -32,11 +30,11 @@ public class DetailsPaysActivity extends AppCompatActivity {
             //           Pays pays = (Pays) getIntent().getSerializableExtra("selectedPays");
             paysService = Config.getApiClient().create(PaysService.class);
             long idPays = getIntent().getLongExtra("idPays", 0);
-            id = findViewById(R.id.textVId);
-            continent = findViewById(R.id.textVContinent);
-            nom = findViewById(R.id.textVNom);
-            nbreHabitant = findViewById(R.id.textVNombreHabitants);
-            superficie = findViewById(R.id.textVSuperficie);
+            id = findViewById(R.id.editTextId);
+            continent = findViewById(R.id.editTextContinent);
+            nom = findViewById(R.id.editTextNom);
+            nbreHabitant = findViewById(R.id.editTextNombreHabitants);
+            superficie = findViewById(R.id.editTextSuperficie);
             initDetails("", "", "", "", "");
 
             paysService.getPaysById(idPays).enqueue(new Callback<Pays>() {

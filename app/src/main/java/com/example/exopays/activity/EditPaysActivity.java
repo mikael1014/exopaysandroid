@@ -19,11 +19,11 @@ public class EditPaysActivity extends AppCompatActivity {
 
         if (editMode != 0) {
             Pays pays = (Pays) getIntent().getSerializableExtra("selectedPays");
-            EditText editTextId = findViewById(R.id.textVId);
-            EditText editTextContinent = findViewById(R.id.textVContinent);
-            EditText editTextNom = findViewById(R.id.textVNom);
-            EditText editTextNombreHabitants = findViewById(R.id.textVNombreHabitants);
-            EditText editTextSuperficie = findViewById(R.id.textVSuperficie);
+            EditText editTextId = findViewById(R.id.editTextId);
+            EditText editTextContinent = findViewById(R.id.editTextContinent);
+            EditText editTextNom = findViewById(R.id.editTextNom);
+            EditText editTextNombreHabitants = findViewById(R.id.editTextNombreHabitants);
+            EditText editTextSuperficie = findViewById(R.id.editTextSuperficie);
             editTextId.setText(String.valueOf(pays.getId()));
             editTextContinent.setText(pays.getContinent());
             editTextNom.setText(pays.getNom());
