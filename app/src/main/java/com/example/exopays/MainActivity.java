@@ -9,6 +9,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private PaysAdapter paysAdapter;
     private List<Pays> listePays = new ArrayList<>();
     private RecyclerView recyclerView;
+    private ActivityResultLauncher<Intent> activityResultLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        chargementListe();
         paysAdapter= new PaysAdapter(listePays);
         recyclerView.setAdapter(paysAdapter);
         paysService = Config.getApiClient().create(PaysService.class);
@@ -51,17 +57,37 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("Response", response.code()+"");
                 if (response.isSuccessful()) {
                     listePays=response.body();
-                    paysAdapter= new PaysAdapter(listePays);
-                    recyclerView.setAdapter(paysAdapter);
+                    chargementListe();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Pays>> call, Throwable t) {
+
                 t.printStackTrace();
             }
         });
 
+        activityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == 201) {
+                            Intent intent = result.getData();
+                            Pays pays = (Pays) intent.getSerializableExtra("newPays");
+                            listePays.add(pays);
+                            chargementListe();
+                        }
+                    }
+                }
+
+        );
+
+    }
+    private void chargementListe() {
+        paysAdapter = new PaysAdapter(listePays);
+        recyclerView.setAdapter(paysAdapter);
     }
 
 //    @Override
@@ -115,7 +141,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item1:
-                Toast.makeText(this, "Item 1 clické", Toast.LENGTH_SHORT).show();
+  //              Toast.makeText(this, "Item 1 clické", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, EditPaysActivity.class);
+//        startActivity(intent);
+                activityResultLauncher.launch(intent);
                 break;
             case R.id.Item2:
                 Toast.makeText(this, "Item 2 clické", Toast.LENGTH_SHORT).show();
@@ -132,6 +161,24 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    @Override
+    protected void onResume() {
+//        paysService.getListePays().enqueue(new Callback<List<Pays>>() {
+//            @Override
+//            public void onResponse(Call<List<Pays>> call, Response<List<Pays>> response) {
+//                if (response.isSuccessful()) {
+//                    paysList = response.body();
+//                    chargementListe();
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<Pays>> call, Throwable t) {
+//                t.printStackTrace();
+//            }
+//        });
+        super.onResume();
+    }
 
 }
