@@ -23,13 +23,7 @@ public class EditPaysActivity extends AppCompatActivity {
     private EditText editTextId, editTextContinent, editTextNom, editTextNombreHabitants, editTextSuperficie;
     private PaysService paysService;
 
-//    setTitle("Edit");
-//
-//    int editMode = getIntent().getIntExtra("editMode", 0);
-//
-//        if(editMode !=0)
-//
-//    {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +41,13 @@ public class EditPaysActivity extends AppCompatActivity {
         editTextNom.setText(pays.getNom());
         editTextNombreHabitants.setText(String.valueOf(pays.getNombreHabitants()));
         editTextSuperficie.setText(String.valueOf(pays.getSuperficie()));
+            setTitle("Edit");
+
+    int editMode = getIntent().getIntExtra("editMode", 0);
+
+        if(editMode !=0)
+
+    {}
     }
 
 
